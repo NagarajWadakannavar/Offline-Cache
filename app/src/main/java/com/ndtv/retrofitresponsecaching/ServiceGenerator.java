@@ -41,7 +41,7 @@ public class ServiceGenerator {
         return retrofit.create(serviceClass);
     }
 
-    public ServiceGenerator(final Context context) {
+    private ServiceGenerator(final Context context) {
         builder = new Retrofit.Builder().baseUrl(API_BASE_URL).addConverterFactory(GsonConverterFactory.create());
         httpClient = new OkHttpClient.Builder()
                 .cache(new Cache(context.getApplicationContext().getCacheDir(), CACHE_SIZE))
