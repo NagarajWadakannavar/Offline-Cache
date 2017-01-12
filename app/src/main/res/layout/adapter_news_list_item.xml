@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="news"
+            type="com.ndtv.retrofitresponsecaching.NewsItem"/>
+
+        <variable
+            name="clickListener"
+            type="com.ndtv.retrofitresponsecaching.RecyclerViewOnItemClickListener"/>
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{clickListener.onClick}"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="130dp"
+                android:layout_height="120dp"
+                android:layout_marginRight="14dp"
+                android:scaleType="fitXY"
+                app:listImage="@{news.storyImage}"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/image_view"
+                android:layout_toRightOf="@id/image_view"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:text="@{news.title}"
+                android:textSize="15sp"
+                tools:text="@string/app_name"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/image_view"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/image_view"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{news.pubDate}"
+                    tools:text="10 min ago | "/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{news.label}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorAccent"
+                    tools:text="Entertainment"/>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dedede"></View>
+    </LinearLayout>
+
+</layout>
